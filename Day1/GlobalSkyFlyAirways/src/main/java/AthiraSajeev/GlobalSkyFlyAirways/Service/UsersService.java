@@ -11,8 +11,8 @@ public class UsersService {
     private UsersRepository usersRepository;
 
 
-    public void save(Users user) {
-        usersRepository.save(user);
+    public Users save(Users users) {
+        return usersRepository.save(users);
     }
     public String remove(Users user){
         usersRepository.delete(user);
