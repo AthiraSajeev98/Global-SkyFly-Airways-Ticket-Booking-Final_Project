@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    <link rel="icon" type="image/jpg" href="./images/logo1.jpg ">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+<div class="container">
+    <ul>
+        <li><img src="./images/GlobalSkyFlyAirways-logo.png" alt="GlobalSkyFlyAirways-logo">
+        </li>
+        <li><a href="/home"><p>Home</p></a></li>
+        <li><a href="/signUp"><p>Sign Up</p></a></li>
+        <li><a href="/signIn"><p>Sign In</p></a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Roles</a>
+            <div class="dropdown-content">
+                <a href="#">User</a>
+                <a href="#">Admin</a>
+                <a href="#">Airline</a>
+            </div>
+        </li>
+    </ul>
+    <div class="login">
+        <br>
+        <h6 style="font-size:20px;color:white;" align="center"><small><span
+                th:text="${successMessage}"></span></small></h6>
+        <h6 style="font-size:20px;color:white;" align="center"><small><span
+                th:text="${errorMessage}"></span></small></h6>
+
+        <div class="form">
+            <form class="login-form" action="/signIn" method="post">
+                <span>Sign In</span><br><br>
+                <input type="text" name="userName" placeholder="Username" required/>
+                <input type="password" name="password" placeholder="password" required/>
+                <button type="submit">Sign In</button>
+                <br><br><span style="font-size: large;">OR</span><br><br>
+            </form>
+            <a href="/signUp">
+                <button>Sign Up</button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
