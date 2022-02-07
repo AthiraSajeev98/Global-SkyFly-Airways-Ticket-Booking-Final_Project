@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="icon" type="image/jpg" href="./images/logo1.jpg ">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="home.css">
+
+</head>
+<body>
+<div class="container">
+    <ul>
+        <li><img src="./images/GlobalSkyFlyAirways-logo.png" alt="GlobalSkyFlyAirways-logo">
+        </li>
+        <li><a href="/home"><p>Home</p></a></li>
+        <li><a href="/signUp"><p>Sign Up</p></a></li>
+        <li><a href="/signIn"><p>Sign In</p></a></li>
+        <li><a href="#">Roles <i class="fas fa-caret-down"></i></a>
+            <ul style="height: 100px;">
+                <li><a href="/signUp">User</a></li>
+                <li><a href="/signUpAdmin">Admin</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="login">
+        <h6 style="font-size:20px;color:white;" align="center"><small><span th:text="${successMessage}"></span></small>
+        </h6>
+        <div class="form">
+            <form class="login-form" action="/signUp" method="post">
+                <span>User Sign Up</span><br><br><br><br>
+                <input type="text" name="username" placeholder="Username" required/>
+                <input type="password" name="password" placeholder="password" required/>
+                <input type="text" name="name" placeholder="Name" required/>
+                <input type="text" name="age" placeholder="Age" required/>
+                <input type="text" name="nationality" placeholder="Nationality" required/>
+                <input type="text" name="emailId" placeholder="Email" required/>
+                <input type="text" name="address" placeholder="Address" required/>
+                <input type="text" name="phoneNumber" placeholder="Phone Number" required/>
+                <button type="submit">Sign Up</button>
+            <br><br><span style="font-size: large;">OR</span><br><br>
+            </form>
+            <a href="/signIn">
+                <button>Sign In</button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Wallet Balance </title>
+    <link rel="icon" type="image/jpg" href="../images/logo1.jpg ">
+    <link rel="stylesheet" href="/login.css">
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+</head>
+<body>
+<div class="container">
+    <ul>
+        <li><img style="margin-left: -322px;" src="../images/GlobalSkyFlyAirways-logo.png"
+                 alt="GlobalSkyFlyAirways-logo">
+        </li>
+        <li><a href="">Profile <i class="fas fa-caret-down"></i></a>
+            <ul>
+                <li><a th:href="@{/userProfile/{userId} (userId=${userId})}">View Profile</a></li>
+                <li><a th:href="@{/updateUserProfile/{userId} (userId=${userId})}">Update Profile</a></li>
+            </ul>
+        </li>
+        <li><a href="">Airlines<i class="fas fa-caret-down"></i></a>
+            <ul>
+                <li><a th:href="@{/airlines/{userId} (userId=${userId})}">Search Airlines</a></li>
+                <li><a th:href="@{/previousBookings/{userId} (userId=${userId})}">Previous Bookings</a></li>
+            </ul>
+        </li>
+        <li><a href="">Wallet<i class="fas fa-caret-down"></i></a>
+            <ul >
+                <li><a th:href="@{/addUserWalletBalance/{userId} (userId=${userId})}">Add Amount</a></li>
+                <li><a th:href="@{/userBalance/{userId} (userId=${userId})}">Balance</a></li>
+            </ul>
+        </li>
+        <li><a href="/signIn">Sign Out</a></li>
+    </ul>
+    <div class="grid" style="background: transparent">
+        <img src="../images/Air_India-Logo.png"/>
+        <img src="../images/AirAsia_India-Logo.png"/>
+        <img src="../images/British_Airways-Logo.png"/>
+        <img src="../images/Jet_Airways-Logo.png"/>
+        <img src="../images/Oman_Air-Logo.png"/>
+    </div>
+    <div class="login">
+        <div class="login"><h6 style="font-size:20px;color:white;" align="center"><small><span
+                th:text="${successMessage}"></span></small></h6>
+            <div class="form" style=" background: linear-gradient(to bottom right, white, #88bdbc)">
+                <form class="login-form" action="/addUserWalletBalance" method="post">
+                    <span>Add Wallet Balance</span><br><br><br><br>
+                    <p>Enter the amount in ₹ &nbsp;: <br></p><input type="text" name="amount" placeholder="Amount in ₹" required/>
+                   <button type="submit">Proceed</button>
+                    <br><br><span style="font-size: large;">OR</span><br><br>
+                </form>
+                <a th:href="@{/userBalance/{userId} (userId=${userId})}">
+                    <button>Check Balance</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
