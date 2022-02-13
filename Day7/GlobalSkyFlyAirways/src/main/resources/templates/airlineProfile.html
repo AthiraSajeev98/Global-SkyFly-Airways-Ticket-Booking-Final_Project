@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Airline Profile</title>
+    <link rel="icon" type="image/jpg" href="../images/logo1.jpg ">
+    <link rel="stylesheet" href="/login.css">
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+</head>
+<body>
+<div class="container">
+    <ul>
+        <li><img style="margin-left: -300px;" src="../images/GlobalSkyFlyAirways-logo.png"
+                 alt="GlobalSkyFlyAirways-logo">
+        </li>
+        <li><a href="#">Profile <i class="fas fa-caret-down"></i></a>
+            <ul style="height: 100px;">
+                <li><a th:href="@{/airlineProfile/{airlineId}(airlineId=${airlineId})}">View Profile</a></li>
+                <li><a th:href="@{/changeAirlinePassword/{airlineId}(airlineId=${airlineId})}">Change Password</a></li>
+            </ul>
+        </li>
+        <li><a href="/airlines">Airlines<i class="fas fa-caret-down"></i></a>
+            <ul style="height: 150px; width: auto;">
+                <li><a th:href="@{/scheduleFlight/{airline} (airline=${airlineId})}">Add Schedule</a></li>
+                <li><a th:href="@{/fixedFlightSchedule/{airlineId}(airlineId=${airlineId})}">Fixed Schedule</a></li>
+                <li><a th:href="@{/cancelledFlights/{airlineId}(airlineId=${airlineId})}">Cancelled Flights</a></li>
+            </ul>
+        </li>
+        <li><a href="">Transaction<i class="fas fa-caret-down"></i></a>
+            <ul style="height: 100px; width: 150px;">
+                <li><a th:href="@{/airlineRefund/{airlineId}(airlineId=${airlineId})}">Refund</a></li>
+                <li><a th:href="@{/airlineAccount/{airlineId}(airlineId=${airlineId})}">Account</a></li>
+            </ul>
+        </li>
+        <li><a href="/logout">Sign Out</a></li>
+    </ul>
+    <div class="grid" style="background: transparent">
+        <img src="../images/Air_India-Logo.png"/>
+        <img src="../images/AirAsia_India-Logo.png"/>
+        <img src="../images/British_Airways-Logo.png"/>
+        <img src="../images/Jet_Airways-Logo.png"/>
+        <img src="../images/Oman_Air-Logo.png"/>
+    </div>
+    <div class="login">
+        <div class="login"><h6 style="font-size:20px;color:white;" align="center"><small><span
+                th:text="${successMessage}"></span></small></h6>
+            <div class="form" style=" background: linear-gradient(to bottom right, white, #88bdbc)">
+                <span>Profile</span><br><br><br>
+                <div style="font-size:15px;">Airline ID :<span class="formStyle" style="font-size:18px;"
+                                                         th:text="${username}"></span>
+                </div>
+                <br>
+                <div style="font-size:15px;">Organization : <span class="formStyle" style="font-size:18px;"
+                                                         th:text="${organization}"></span></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

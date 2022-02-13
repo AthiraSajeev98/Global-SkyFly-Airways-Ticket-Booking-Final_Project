@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>My Bookings</title>
+    <link rel="icon" type="image/jpg" href="../images/logo1.jpg ">
+    <link rel="stylesheet" href="/login.css">
+    <link rel="stylesheet" href="/home.css">
+
+</head>
+<body>
+<div class="container">
+    <ul>
+        <li><img style="margin-left: -250px;" src="../images/GlobalSkyFlyAirways-logo.png"
+                 alt="GlobalSkyFlyAirways-logo">
+        </li>
+        <li><a href="">Profile <i class="fas fa-caret-down"></i></a>
+            <ul>
+                <li><a th:href="@{/userProfile/{userId} (userId=${userId})}">View Profile</a></li>
+                <li><a th:href="@{/updateUserProfile/{userId} (userId=${userId})}">Update Profile</a></li>
+            </ul>
+        </li>
+        <li><a th:href="@{/searchFlights/{userId} (userId=${userId})}">Search Flight</a></li>
+        <li><a href="">Wallet<i class="fas fa-caret-down"></i></a>
+            <ul>
+                <li><a th:href="@{/addUserWalletBalance/{userId} (userId=${userId})}">Add Amount</a></li>
+                <li><a th:href="@{/userBalance/{userId} (userId=${userId})}">Balance</a></li>
+            </ul>
+        </li>
+        <li><a th:href="@{/previousBookings/{userId} (userId=${userId})}">My Bookings</a></li>
+        <li><a href="/signIn">Sign Out</a></li>
+    </ul>
+    <div class="grid" style="background: transparent">
+        <img src="../images/Air_India-Logo.png"/>
+        <img src="../images/AirAsia_India-Logo.png"/>
+        <img src="../images/British_Airways-Logo.png"/>
+        <img src="../images/Jet_Airways-Logo.png"/>
+        <img src="../images/Oman_Air-Logo.png"/>
+    </div>
+    <div class="login" style="width: 1100px;">
+        <h6 style="font-size:20px;color:white;" align="center"><small><span
+                th:text="${successMessage}"></span></small></h6>
+
+        <div class="form" style=" background: linear-gradient(to bottom right, white, #88bdbc); max-width: 1000px;">
+            <span>&nbsp;My&nbsp;Bookings</span><br><br><br>
+            <table class="space">
+                <tr align="center">
+                    <td style="font-size:15px;font-weight:bold;">Flight ID</td>&nbsp;&nbsp;
+                    <td style="font-size:15px;font-weight:bold;">Airlines</td>&nbsp;&nbsp;
+                    <td style="font-size:15px;font-weight:bold;">Origin</td>&nbsp;&nbsp;
+                    <td style="font-size:15px;font-weight:bold;">Departure Date</td>&nbsp;&nbsp;
+                    <td style="font-size:15px;font-weight:bold;">Departure Time</td>&nbsp;&nbsp;
+                    <td style="font-size:15px;font-weight:bold;">Destination</td>&nbsp;&nbsp;
+                    <td style="font-size:15px;font-weight:bold;">Arrival Date</td>&nbsp;&nbsp;
+                    <td style="font-size:15px;font-weight:bold;">Arrival Time</td>&nbsp;&nbsp;
+                    <td style="font-size:15px;font-weight:bold;">Passenger Name</td>&nbsp;&nbsp;
+                    <td style="font-size:15px;font-weight:bold;">Seat</td>&nbsp;&nbsp;
+                    <td style="font-size:15px;font-weight:bold;">Flight Status</td>&nbsp;&nbsp;
+                </tr>
+
+                <tr th:each="ticket : ${tickets}">
+                    <td><span class="formStyle" style="font-size:15px;"
+                              th:text="${ticket.getFlights().getFlightId()}"></span></td>&nbsp;&nbsp;&nbsp;
+                    <td><span class="formStyle" style="font-size:15px;"
+                              th:text="${ticket.getFlights().getOrigin()}"></span></td>&nbsp;&nbsp;&nbsp;
+                    <td><span class="formStyle" style="font-size:15px;"
+                              th:text="${ticket.getFlights().getDepartureDate()}"></span></td>&nbsp;
+                    <td><span class="formStyle" style="font-size:15px;"
+                              th:text="${ticket.getFlights().getDepartureTime()}"></span></td>&nbsp;
+                    <td><span class="formStyle" style="font-size:15px;"
+                              th:text="${ticket.getFlights().getDestination()}"></span></td>&nbsp;
+                    <td><span class="formStyle" style="font-size:15px;"
+                              th:text="${ticket.getFlights().getArrivalDate()}"></span></td>&nbsp;
+                    <td><span class="formStyle" style="font-size:15px;"
+                              th:text="${ticket.getFlights().getArrivalTime()}"></span></td>&nbsp;
+                    <td><span class="formStyle" style="font-size:15px;"
+                              th:text="${ticket.getPassengerName()}"></span></td>&nbsp;
+                    <td><span class="formStyle" style="font-size:15px;"
+                              th:text="${ticket.getFlights().getStatus()}"></span></td>&nbsp;
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>`
