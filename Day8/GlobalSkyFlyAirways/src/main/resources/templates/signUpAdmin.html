@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="icon" type="image/jpg" href="./images/logo1.jpg ">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="home.css">
+
+</head>
+<body>
+<div class="container">
+    <ul>
+        <li><img style="margin-left: -275px;" src="../images/GlobalSkyFlyAirways-logo.png"
+                 alt="GlobalSkyFlyAirways-logo"></li>
+
+        <li><a th:href="@{/superAdminProfile/{adminId} (adminId=${adminId})}">View Profile</a></li>
+
+        <li><a href="#">Admin Manager<i class="fas fa-caret-down"></i></a>
+            <ul >
+                <li><a href="/signUpAdmin">Add Admin</a></li>
+                <li><a th:href="@{/adminsDetails/{adminId} (adminId=${adminId})}">Registered Admins</a></li>
+                <li><a th:href="@{/removeAdmin/{adminId} (adminId=${adminId})}">Remove Admin</a></li>
+            </ul>
+        </li>
+        <li><a href="/signIn">Sign Out</a></li>
+    </ul>
+    <div class="login">
+        <h6 style="font-size:20px;color:white;" align="center"><small><span th:text="${successMessage}"></span></small>
+        </h6>
+        <div class="form">
+            <form class="login-form" action="/signUpAdmin" method="post">
+                <span>Admin Sign Up</span><br><br><br><br>
+                <input type="text" name="username" placeholder="Username" required maxlength="15" minlength="6"/>
+                <input type="password" name="password" placeholder="password" required maxlength="15"/>
+                <input type="text" name="organizationName" placeholder="Organization" required maxlength="20"/>
+                <input type="text" name="employeeId" placeholder="Employee Id" required maxlength="7"/>
+                <input type="text" name="name" placeholder="Name" required maxlength="20"/>
+                <input type="text" name="age" placeholder="Age" required maxlength="2"/>
+                <input type="text" name="nationality" placeholder="Nationality" required maxlength="20" />
+                <input type="text" name="emailId" placeholder="Email" required maxlength="20" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                <input type="text" name="address" placeholder="Address" required maxlength="50"/>
+                <input type="tel" name="phoneNumber" placeholder="Phone Number" required pattern="^\d{10}$"/>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>`
