@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule Flight</title>
+    <link rel="icon" type="image/jpg" href="../images/logo1.jpg ">
+    <link rel="stylesheet" href="/login.css">
+    <link rel="stylesheet" href="/home.css">
+
+</head>
+<body>
+<div class="container">
+    <ul>
+        <li><img style="margin-left: -300px;" src="../images/GlobalSkyFlyAirways-logo.png"
+                 alt="GlobalSkyFlyAirways-logo">
+        </li>
+        <li><a href="#">Profile <i class="fas fa-caret-down"></i></a>
+            <ul style="height: 100px;">
+                <li><a th:href="@{/airlineProfile/{airlineId}(airlineId=${airlineId})}">View Profile</a></li>
+                <li><a th:href="@{/changeAirlinePassword/{airlineId}(airlineId=${airlineId})}">Change Password</a></li>
+            </ul>
+        </li>
+        <li><a href="/airlines">Airlines<i class="fas fa-caret-down"></i></a>
+            <ul style="height: 150px; width: auto;">
+                <li><a th:href="@{/scheduleFlight/{airline} (airline=${airlineId})}">Add Schedule</a></li>
+                <li><a th:href="@{/fixedFlightSchedule/{airlineId}(airlineId=${airlineId})}">Fixed Schedule</a></li>
+                <li><a th:href="@{/cancelledFlights/{airlineId}(airlineId=${airlineId})}">Cancelled Flights</a></li>
+            </ul>
+        </li>
+        <li><a href="">Transaction<i class="fas fa-caret-down"></i></a>
+            <ul style="height: 100px; width: 150px;">
+                <li><a th:href="@{/airlineRefund/{airlineId}(airlineId=${airlineId})}">Refund</a></li>
+                <li><a th:href="@{/airlineAccount/{airlineId}(airlineId=${airlineId})}">Account</a></li>
+            </ul>
+        </li>
+        <li><a href="/signIn">Sign Out</a></li>
+    </ul>
+    <div class="login">
+        <h6 style="font-size:20px;color:white;" align="center"><small><span th:text="${successMessage}"></span></small>
+        </h6>
+        <div class="form">
+            <form class="login-form" action="/scheduleFlight" method="post">
+                <span>Add Flight Schedule</span><br><br><br><br>
+                <input type="text" name="flightId" placeholder="Flight Id" required/>
+                <input type="text" name="gate" placeholder="Gate" required/>
+                <input type="text" name="origin" placeholder="Origin" required/>
+                <input type="time" name="departureTime" placeholder="Departure Time" required/>
+                <input type="date" name="departureDate" placeholder="departure Date" required/>
+                <input type="text" name="destination" placeholder="Destination" required/>
+                <input type="time" name="arrivalTime" placeholder="Arrival Time" required/>
+                <input type="date" name="arrivalDate" placeholder="Arrival Date" required/>
+                <input type="text" name="duration" placeholder="Flight Duration" required/>
+                <input type="text" name="ticketPrice" placeholder="Price in ₹" required/>
+                <button type="submit">Register Schedule</button>
+                <br><br><span style="font-size: large;">OR</span><br><br>
+            </form>
+            <a th:href="@{/scheduleFlight/{airline} (airline=${airlineId})}">
+                <button>Add New Schedule</button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>`

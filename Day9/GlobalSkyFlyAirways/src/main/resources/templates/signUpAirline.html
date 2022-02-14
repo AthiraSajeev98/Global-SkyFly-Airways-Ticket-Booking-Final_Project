@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Airline</title>
+    <link rel="icon" type="image/jpg" href="../images/logo1.jpg ">
+    <link rel="stylesheet" href="/login.css">
+    <link rel="stylesheet" href="/home.css">
+
+</head>
+<body>
+<div class="container">
+    <ul>
+        <li><img style="margin-left: -275px;" src="../images/GlobalSkyFlyAirways-logo.png"
+                 alt="GlobalSkyFlyAirways-logo">
+        </li>
+        <li><a href="">Profile <i class="fas fa-caret-down"></i></a>
+            <ul>
+                <li><a th:href="@{/adminProfile/{adminId} (adminId=${adminId})}">View Profile</a></li>
+                <li><a th:href="@{/updateAdminProfile/{adminId} (adminId=${adminId})}">Update Profile</a></li>
+            </ul>
+        </li>
+        <li><a th:href="@{/signUpAirline/{adminId} (adminId=${adminId})}">Add Airline</a></li>
+        <li><a th:href="@{/airlinesDetails/{adminId} (adminId=${adminId})}">Airlines</a></li>
+        <li><a href="/signIn">Sign Out</a></li>
+    </ul>
+    <div class="login">
+        <h6 style="font-size:20px;color:white;" align="center"><small><span th:text="${successMessage}"></span></small>
+        </h6>
+        <div class="form">
+            <form class="login-form" action="/signUpAirline" method="post">
+                <span>Airline Registration</span><br><br><br><br>
+                <input type="text" name="username" placeholder="Username" required maxlength="15" minlength="6"/>
+                <input type="password" name="password" placeholder="password" required maxlength="15"/>
+                <input type="text" name="organization" placeholder="Organization" required maxlength="20"/>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>`
